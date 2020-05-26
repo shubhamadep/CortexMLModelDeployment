@@ -1,3 +1,10 @@
+Add config.py file, and add following configuration details
+
+keys = dict(
+    aws_access_key_id= **YOUR ID**,
+    aws_secret_access_key= **YOUR SECRET KEY**,
+)
+
 Local testing
 
 curl http://localhost:8888 \
