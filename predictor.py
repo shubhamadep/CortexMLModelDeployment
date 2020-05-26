@@ -3,7 +3,7 @@ import boto3
 from botocore import UNSIGNED
 from botocore.client import Config
 import pickle
-import config
+import config as cfg
 
 labels = ["setosa", "versicolor", "virginica"]
 
@@ -15,10 +15,10 @@ class PythonPredictor:
         #     s3 = boto3.client("s3")  # client will use your credentials if available
         # else:
         #     s3 = boto3.client("s3", config=Config(signature_version=UNSIGNED))  # anonymous client
-
+        print(cfg.keys['aws_access_key_id'])
         s3 = boto3.client("s3",
-                          aws_access_key_id=config.aws_access_key_id,
-                          aws_secret_access_key=config.aws_secret_access_key,
+                          aws_access_key_id=cfg.keys['aws_access_key_id'],
+                          aws_secret_access_key=cfg.keys['aws_secret_access_key']
                           )
         s3.download_file(config["bucket"], config["key"], "/tmp/model.pkl")
         self.model = pickle.load(open("/tmp/model.pkl", "rb"))
