@@ -1,0 +1,9 @@
+# cortex.yaml
+
+- name: iris-classifier
+  predictor:
+    type: python
+    path: predictor.py
+    config:
+      bucket: tracksentiment-ml-models
+      key: cortex-test-models/model.pkl

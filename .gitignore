@@ -1,3 +1,5 @@
 venv/
 model.pkl
 .idea/
+awskey.csv
+config.py
